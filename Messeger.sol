@@ -8,13 +8,22 @@ contract Messeger {
         owner = msg.sender;
     }
     function writeMessage(string calldata _messageToBeStorage) 
-    public {
-        require (msg.sender == owner, "you are not allowed to send message");
+    public payable {
+        if (msg.sender != owner) {
+            require(msg.value >= 1 ether, "the number of ethers is insuficient");
+        } else {
+            payable(msg.sender).transfer(msg.value);
+        }
         message = _messageToBeStorage;
         changeCounter++;
     }
-    function getMyAddress() 
+    function getMyAddress()
     public view returns(address) {
         return msg.sender;
     }
 }
+
+/*
+    - arrumar o quarto;
+    - continuar com o curso de solidity (fazer uns 3 capítulos pelo menos);
+*/
