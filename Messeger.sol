@@ -24,6 +24,7 @@ contract Messeger {
 }
 
 /*
+    - você tem que ser um exímio solucionador de problemas
     - arrumar o quarto;
     - continuar com o curso de solidity (fazer uns 3 capítulos pelo menos);
 */
